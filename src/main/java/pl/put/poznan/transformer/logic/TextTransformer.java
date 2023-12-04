@@ -13,6 +13,8 @@ public class TextTransformer {
 
     public String transform(String text){
         // of course, normally it would do something based on the transforms
-        return text.toUpperCase();
+        StringTransformer tr = new DummyTransformer(new IdentityTransformer(text));
+
+        return tr.transform();
     }
 }
