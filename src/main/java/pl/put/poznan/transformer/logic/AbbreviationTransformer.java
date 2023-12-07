@@ -20,7 +20,7 @@ public class AbbreviationTransformer extends TransformationDecorator {
         EXPAND
     };
 
-    AbbreviationTransformer(StringTransformer tr, Mode mode) {
+    AbbreviationTransformer(StringTransformer tr, Mode mode = Mode.EXPAND) {
         super(tr);
         this.mode = mode;
     }
