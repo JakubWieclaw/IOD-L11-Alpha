@@ -23,6 +23,8 @@ public class DecoratorBuilder {
                 case "EXPAND" :
                     base = new AbbreviationTransformer(base, AbbreviationTransformer.Mode.EXPAND);
                     break;
+                default:
+                    return new ErrorTransformer(transform);
             }
         }
         return base;
