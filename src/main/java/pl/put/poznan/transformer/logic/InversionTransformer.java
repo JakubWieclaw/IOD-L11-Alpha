@@ -27,7 +27,7 @@ public class InversionTransformer extends TransformationDecorator {
             } else if (Character.isLowerCase(c)) {
                 reverse_c = Character.toLowerCase(reverse_c);
             }
-            result += c;
+            result += reverse_c;
 
         }
         return result;
