@@ -5,7 +5,7 @@ import pl.put.poznan.transformer.logic.StringTransformer;
 public class IdentityTransformer implements StringTransformer {
     private final String str;
 
-    IdentityTransformer(String s){
+    public IdentityTransformer(String s){
         str = s;
     }
 
