@@ -1,5 +1,8 @@
 package pl.put.poznan.transformer.logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,10 +37,11 @@ public class LetterCaseTransformer extends TransformationDecorator {
             case CAPITALIZE:
                 logger.debug("capitalize mode");
                 String[] words = s.split(" ");
-                String result = "";
+                List<String> transformedWords = new ArrayList<>();
                 for (String word : words) {
-                    result += word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase() + " ";
+                    transformedWords.add(word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase());
                 }
+                String result = String.join(" ", transformedWords);
                 return result;
             default:
                 logger.debug(this.mode.toString() + " mode is not supported");

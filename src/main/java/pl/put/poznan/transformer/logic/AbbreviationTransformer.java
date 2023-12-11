@@ -24,7 +24,7 @@ public class AbbreviationTransformer extends TransformationDecorator {
         super(tr);
         this.mode = Mode.EXPAND;
     }
-    
+
     AbbreviationTransformer(StringTransformer tr, Mode mode) {
         super(tr);
         this.mode = mode;
@@ -43,13 +43,14 @@ public class AbbreviationTransformer extends TransformationDecorator {
             case ABBREVIATE:
                 logger.debug("abbreviate mode");
                 for (Map.Entry<String, String> entry : abbrToFullForm.entrySet()) {
-                    s = s.replaceAll("(?i)" + Pattern.quote(entry.getValue()), entry.getKey());
+                    s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getValue()) + "\\b", entry.getKey());
                 }
                 return s;
             case EXPAND:
                 logger.debug("expand mode");
                 for (Map.Entry<String, String> entry : abbrToFullForm.entrySet()) {
-                    s = s.replaceAll("(?i)" + Pattern.quote(entry.getKey()), entry.getValue());
+                    logger.debug("[regex] (?i)" + Pattern.quote(entry.getKey()));
+                    s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getKey()) + "\\b", entry.getValue());
                 }
                 return s;
             default:
@@ -61,7 +62,8 @@ public class AbbreviationTransformer extends TransformationDecorator {
     static {
         try {
             InputStream is = AbbreviationTransformer.class.getResourceAsStream("/abbrToExpand.json");
-            Map<String, String> map = new ObjectMapper().readValue(is, new TypeReference<Map<String, String>>(){});
+            Map<String, String> map = new ObjectMapper().readValue(is, new TypeReference<Map<String, String>>() {
+            });
             abbrToFullForm = new DualHashBidiMap<>(map);
         } catch (IOException e) {
             logger.error("Failed to load abbrToExpand.json");
