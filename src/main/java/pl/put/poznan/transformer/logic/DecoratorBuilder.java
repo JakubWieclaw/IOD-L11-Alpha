@@ -26,6 +26,12 @@ public class DecoratorBuilder {
                 case "INVERSE" :
                     base = new InversionTransformer(base);
                     break;
+                case "NUM_EXPAND" :
+                    base = new NumberTransformer(base, NumberTransformer.Mode.EXPAND);
+                    break;
+                case "NUM_ABBREVIATE" :
+                    base = new NumberTransformer(base, NumberTransformer.Mode.ABBREVIATE);
+                    break;
                 default:
                     return new ErrorTransformer(transform);
             }
