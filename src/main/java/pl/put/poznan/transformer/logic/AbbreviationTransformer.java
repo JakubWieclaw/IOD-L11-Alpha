@@ -79,7 +79,6 @@ public class AbbreviationTransformer extends TransformationDecorator {
             case EXPAND:
                 logger.debug("expand mode");
                 for (Map.Entry<String, String> entry : abbrToFullForm.entrySet()) {
-                    logger.debug("[regex] (?i)" + Pattern.quote(entry.getKey()));
                     s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getKey()) + "\\b", entry.getValue());
                 }
                 return s;
