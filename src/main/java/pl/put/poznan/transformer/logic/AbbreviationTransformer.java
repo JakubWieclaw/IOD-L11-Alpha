@@ -14,22 +14,46 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * A class that extends TransformationDecorator to provide functionality
+ * for abbreviating or expanding abbreviations in a string.
+ * The abbreviations and their expansions are loaded from a JSON file.
+ */
 public class AbbreviationTransformer extends TransformationDecorator {
+    /**
+     * Enum representing the mode of operation - abbreviate or expand.
+     */
     public static enum Mode {
         ABBREVIATE,
         EXPAND
     };
 
+    /**
+     * Constructor that sets the mode to EXPAND by default.
+     *
+     * @param tr the StringTransformer to be decorated
+     */
     AbbreviationTransformer(StringTransformer tr) {
         super(tr);
         this.mode = Mode.EXPAND;
     }
 
+    /**
+     * Constructor that allows setting the mode.
+     *
+     * @param tr   the StringTransformer to be decorated
+     * @param mode the mode of operation - abbreviate or expand
+     */
     AbbreviationTransformer(StringTransformer tr, Mode mode) {
         super(tr);
         this.mode = mode;
     }
 
+    /**
+     * Transforms the string by abbreviating or expanding it based on the mode.
+     *
+     * @return the transformed string
+     */
     public String transform() {
         return abbreviationDecorate(super.transform());
     }
@@ -38,6 +62,12 @@ public class AbbreviationTransformer extends TransformationDecorator {
 
     private Mode mode;
 
+    /**
+     * Decorates the string by abbreviating or expanding it based on the mode.
+     *
+     * @param s the string to be decorated
+     * @return the decorated string
+     */
     private String abbreviationDecorate(String s) {
         switch (mode) {
             case ABBREVIATE:
@@ -59,6 +89,9 @@ public class AbbreviationTransformer extends TransformationDecorator {
         }
     }
 
+    /*
+     * Statically created DualHashBidiMap of abbreviations and their expansions.
+     */
     static {
         try {
             InputStream is = AbbreviationTransformer.class.getResourceAsStream("/abbrToExpand.json");
