@@ -27,10 +27,7 @@ public class DecoratorBuilder {
                     base = new InversionTransformer(base);
                     break;
                 case "NUM_EXPAND" :
-                    base = new NumberTransformer(base, NumberTransformer.Mode.EXPAND);
-                    break;
-                case "NUM_ABBREVIATE" :
-                    base = new NumberTransformer(base, NumberTransformer.Mode.ABBREVIATE);
+                    base = new NumberTransformer(base);
                     break;
                 default:
                     return new ErrorTransformer(transform);
