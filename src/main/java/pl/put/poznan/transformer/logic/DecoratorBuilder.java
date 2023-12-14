@@ -7,7 +7,7 @@ package pl.put.poznan.transformer.logic;
 public class DecoratorBuilder {
 
     /**
-     * This method goes through all the transforms in {@param transforms}.
+     * This method goes through all the transforms in transforms.
      * Every iteration it looks for transform name. When it finds a transform
      * name like UPPER, LOWER, CAPITALIZE, ABBREVIATE, EXPAND, INVERSE, NUM_EXPAND
      * this method stacks previous transformer into new one of the fitting type
