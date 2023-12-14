@@ -23,7 +23,7 @@ jobs:
     - name: Copy JAR to gh-pages branch
       run: |
         mkdir -p gh-pages
-        cp target/your-artifact-id-version.jar gh-pages/
+        cp target/io-project-architecture-0.1.jar gh-pages/
       if: success()
 
     - name: Push to gh-pages branch
