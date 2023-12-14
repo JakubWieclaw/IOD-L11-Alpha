@@ -15,6 +15,14 @@
     <artifactId>io-project-architecture</artifactId>
     <version>0.1</version>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/JakubWieclaw/IOD-L11-Alpha</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <java.version>11</java.version>
     </properties>
