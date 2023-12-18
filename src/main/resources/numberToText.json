@@ -99,5 +99,8 @@
     "97": "dziewięćdziesiąt siedem",
     "98": "dziewięćdziesiąt osiem",
     "99": "dziewięćdziesiąt dziewięć",
-    "100": "sto"
+    "100": "sto",
+    "200": "dwieście",
+    "500": "pięćset",
+    "1000": "tysiąc"
 }
