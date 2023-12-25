@@ -1,5 +1,5 @@
 package pl.put.poznan.transformer.rest;
-import com.fasterxml.jackson.annotation.JsonRawValue;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -10,7 +10,6 @@ import pl.put.poznan.transformer.logic.IdentityTransformer;
 import pl.put.poznan.transformer.logic.StringTransformer;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 
 @RestController
