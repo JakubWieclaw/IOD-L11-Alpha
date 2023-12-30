@@ -19,6 +19,7 @@ import java.util.Arrays;
  */
 @RestController
 @RequestMapping("/{text}")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TextTransformerController {
 
     private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
