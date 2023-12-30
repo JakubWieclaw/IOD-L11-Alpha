@@ -88,7 +88,7 @@ public class AbbreviationTransformer extends TransformationDecorator {
         }
     }
 
-    /*
+    /**
      * Statically created DualHashBidiMap of abbreviations and their expansions.
      */
     static {

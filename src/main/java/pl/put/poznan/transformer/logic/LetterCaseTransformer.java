@@ -6,18 +6,39 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * A class that extends TransformationDecorator to provide functionality
+ * for changing letter case in words.
+ * Three possible modes exist: UPPER - transform all letters to uppercase,
+ * LOWER - transform all letters to lowercase and CAPITALIZE - capitalize
+ * first letter of each word.
+ */
 public class LetterCaseTransformer extends TransformationDecorator {
+    /**
+     * Enum representing the mode of operation - UPPER/LOWER/CAPITALIZE.
+     */
     public static enum Mode {
         UPPER,
         LOWER,
         CAPITALIZE
     };
 
+    /**
+     * Constructor.
+     *
+     * @param tr the StringTransformer to be decorated
+     * @param mode the transformation mode (UPPER, LOWER, CAPITALIZE)
+     */
     LetterCaseTransformer(StringTransformer tr, Mode mode) {
         super(tr);
         this.mode = mode;
     }
 
+    /**
+     * Transforms the string by changing its letter-case.
+     *
+     * @return the transformed string
+     */
     public String transform() {
         return letterSizeDecorate(super.transform());
     }
@@ -26,6 +47,15 @@ public class LetterCaseTransformer extends TransformationDecorator {
 
     private Mode mode;
 
+    /**
+     * Decorates the string by changing the letter-case based on the mode.
+     * For UPPER/LOWER uses toUpper/LowerCase() on whole string.
+     * For CAPITALIZE splits string into words (split on spaces)
+     * and capitalizes first letter of each word.
+     *
+     * @param s the string to be decorated
+     * @return the decorated string
+     */
     private String letterSizeDecorate(String s) {
         switch (mode) {
             case UPPER:
