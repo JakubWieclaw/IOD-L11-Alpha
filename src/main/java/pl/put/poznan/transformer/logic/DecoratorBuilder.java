@@ -45,6 +45,9 @@ public class DecoratorBuilder {
                 case "NUM_EXPAND" :
                     base = new NumberTransformer(base);
                     break;
+                case "LATEX" :
+                    base = new LatexTransformer(base);
+                    break;
                 default:
                     return new ErrorTransformer(transform);
             }
