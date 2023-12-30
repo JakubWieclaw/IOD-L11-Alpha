@@ -15,6 +15,7 @@ public class Payload {
         this.transformedText = transformedText;
     }
 
-    @JsonRawValue private String transformedText;
+//    @JsonRawValue private String transformedText;
+    private String transformedText;
 
 }

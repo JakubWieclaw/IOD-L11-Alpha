@@ -43,7 +43,8 @@ public class TextTransformerController {
 //        HashMap<String, String> map = new HashMap<>();
 //        map.put("transformedText", s);
 //        String payload = new ObjectMapper().writeValueAsString(map);
-        Payload payload = new Payload("\""+s+"\"");
+//        Payload payload = new Payload("\""+s+"\"");
+        Payload payload = new Payload(s);
         String jsonPayload = new ObjectMapper().writeValueAsString(payload);
         logger.debug(jsonPayload);
         return jsonPayload;

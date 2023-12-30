@@ -26,6 +26,7 @@ public class LatexTransformer extends TransformationDecorator {
 
     private String latexDecorate(String s) {
         logger.debug("change to LaTeX mode");
+        s = s.replace("\\", "\\backslash");
         for (Map.Entry<String, String> entry : textToLatex.entrySet()) {
             logger.debug(entry.getValue());
             s = s.replace(entry.getKey(), entry.getValue());
