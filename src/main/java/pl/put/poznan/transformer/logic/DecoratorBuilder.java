@@ -48,6 +48,9 @@ public class DecoratorBuilder {
                 case "LATEX" :
                     base = new LatexTransformer(base);
                     break;
+                case "NOREPEAT" :
+                    base = new NoRepeatTransformer(base);
+                    break;
                 default:
                     return new ErrorTransformer(transform);
             }
