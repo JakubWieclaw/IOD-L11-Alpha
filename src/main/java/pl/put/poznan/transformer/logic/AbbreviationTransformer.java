@@ -73,13 +73,15 @@ public class AbbreviationTransformer extends TransformationDecorator {
             case ABBREVIATE:
                 logger.debug("abbreviate mode");
                 for (Map.Entry<String, String> entry : abbrToFullForm.entrySet()) {
-                    s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getValue()) + "\\b", entry.getKey());
+                    s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getValue()) + "\\.?", entry.getKey());
                 }
                 return s;
             case EXPAND:
                 logger.debug("expand mode");
+
                 for (Map.Entry<String, String> entry : abbrToFullForm.entrySet()) {
-                    s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getKey()) + "\\b", entry.getValue());
+                    s = s.replaceAll("\\b(?i)" + Pattern.quote(entry.getKey()) + "\\.?", entry.getValue());
+
                 }
                 return s;
             default:
