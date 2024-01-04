@@ -12,11 +12,26 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * A class that extends TransformationDecorator to provide functionality
+ * for changing LaTeX special symbols (e.g. $,& etc.) into LaTeX format.
+ * The symbols are loaded from a JSON file.
+ */
 public class LatexTransformer extends TransformationDecorator {
+    /**
+     * Default constructor.
+     *
+     * @param tr the StringTransformer to be decorated
+     */
     LatexTransformer(StringTransformer tr) {
         super(tr);
     }
 
+    /**
+     * Transforms the string by changing LaTeX special symbols (e.g. $,& etc.) into LaTeX format.
+     *
+     * @return the transformed string
+     */
     @Override
     public String transform() {
         return latexDecorate(super.transform());
@@ -24,6 +39,14 @@ public class LatexTransformer extends TransformationDecorator {
 
     private static final Logger logger = LoggerFactory.getLogger(LatexTransformer.class);
 
+    /**
+     * Decorates the string by changing LaTeX special symbols.
+     * Treats \\ as a special type of transform which has to be made before every other,
+     * because if not the transformer would transform already added \\ to \\backslash.
+     *
+     * @param s the string to be decorated
+     * @return the decorated string
+     */
     private String latexDecorate(String s) {
         logger.debug("change to LaTeX mode");
         s = s.replace("\\", "\\backslash");

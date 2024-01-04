@@ -12,11 +12,27 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * A class that extends TransformationDecorator to provide functionality
+ * for changing numbers in numerical form to a word form.
+ * Numerals and their word counterparts are loaded from a JSON file.
+ */
 public class NumberTransformer extends TransformationDecorator {
+    /**
+     * Default constructor.
+     *
+     * @param tr the StringTransformer to be decorated
+     */
     NumberTransformer(StringTransformer tr) {
         super(tr);
     }
 
+    /**
+     * Transforms the string by changing numbers in their numerical form to their
+     * word forms (e.g. 1->one).
+     *
+     * @return the transformed string
+     */
     @Override
     public String transform() {
         return numberDecorate(super.transform());
@@ -24,6 +40,13 @@ public class NumberTransformer extends TransformationDecorator {
 
     private static final Logger logger = LoggerFactory.getLogger(NumberTransformer.class);
 
+    /**
+     * Decorates the string by changing numbers in their numerical form to their
+     * word forms (e.g. 1->one).
+     *
+     * @param s the string to be decorated
+     * @return the decorated string
+     */
     private String numberDecorate(String s) {
         logger.debug("number expand mode");
         for (Map.Entry<String, String> entry : numberToText.entrySet()) {
