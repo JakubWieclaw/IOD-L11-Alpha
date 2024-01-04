@@ -29,7 +29,7 @@ public class NumberTransformer extends TransformationDecorator {
 
     /**
      * Transforms the string by changing numbers in their numerical form to their
-     * word forms (e.g. 1->one).
+     * word forms (e.g. 1--one).
      *
      * @return the transformed string
      */
@@ -42,7 +42,7 @@ public class NumberTransformer extends TransformationDecorator {
 
     /**
      * Decorates the string by changing numbers in their numerical form to their
-     * word forms (e.g. 1->one).
+     * word forms (e.g. 1--one).
      *
      * @param s the string to be decorated
      * @return the decorated string
