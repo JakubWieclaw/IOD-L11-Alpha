@@ -11,6 +11,7 @@ const transformOptions = [
   { value: 'EXPAND', label: 'EXPAND' },
   { value: 'INVERSE', label: 'INVERSE' },
   { value: 'NUM_EXPAND', label: 'NUM_EXPAND' },
+  { value: 'NOREPEAT', label: 'NOREPEAT'}
 ];
 
 function App() {

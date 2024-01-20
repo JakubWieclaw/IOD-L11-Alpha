@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * A class that extends TransformationDecorator to provide functionality
- * for changing LaTeX special symbols (e.g. $,& etc.) into LaTeX format.
+ * for changing LaTeX special symbols (e.g. $, &amp; etc.) into LaTeX format.
  * The symbols are loaded from a JSON file.
  */
 public class LatexTransformer extends TransformationDecorator {
@@ -28,7 +28,7 @@ public class LatexTransformer extends TransformationDecorator {
     }
 
     /**
-     * Transforms the string by changing LaTeX special symbols (e.g. $,& etc.) into LaTeX format.
+     * Transforms the string by changing LaTeX special symbols (e.g. $, &amp; etc.) into LaTeX format.
      *
      * @return the transformed string
      */

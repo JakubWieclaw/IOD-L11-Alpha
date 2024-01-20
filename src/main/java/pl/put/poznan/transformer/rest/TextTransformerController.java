@@ -26,6 +26,10 @@ public class TextTransformerController {
 
     /**
      * Default GET request.
+     * @param text text to be transformed
+     * @param transforms list of transforms to be applied
+     * @return JSON string
+     * @throws JsonProcessingException if critical failure
      */
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public String get(@PathVariable String text,
@@ -36,6 +40,10 @@ public class TextTransformerController {
 
     /**
      * Default POST request.
+     * @param text text to be transformed
+     * @param transforms list of transforms to be applied
+     * @return JSON string
+     * @throws JsonProcessingException if critical failure
      */
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String post(@PathVariable String text,
